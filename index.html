@@ -1,0 +1,31 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    </head>
+    <body>
+    </body>
+    <script>
+      fetch('http://tietodeadlinecalculator.com/', { mode: 'cors' })
+      .catch(res => document.body.innerHTML = `If you are reading this then something went wrong lol`)
+      .then((response) => response.json())
+      .then(res => {
+        document.body.innerHTML = `
+          <h1>${res.is_urgent ? "URGENT TASK!" : "Not urgent at all"}</h1>
+          <section class="description">
+            <p>Priority ${res.priority}</p>
+            <p>Priority ${res.detail}</p>
+          </section>
+          <section class="info">
+            <a href="${res.value}">Get more value here</a>
+          </section>
+        `;
+      });
+    </script>
+</html>
